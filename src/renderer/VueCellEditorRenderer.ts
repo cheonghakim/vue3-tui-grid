@@ -2,6 +2,7 @@ import { ColumnInfo } from "tui-grid";
 import { Component, h, VNode, createApp } from "vue";
 import Vue from "vue";
 import { CellEditorProps, CellEditor, GridRectForDropDownLayerPos } from "tui-grid/types/editor";
+import BootstrapVueNext from 'bootstrap-vue-next';
 
 export interface VueCellEditorProps extends CellEditorProps {
   columnInfo: ColumnInfo & {
@@ -45,6 +46,7 @@ export default class VueCellEditorRenderer implements CellEditor {
         row: this.props,
       });
       this.app = createApp(this.VNode);
+      this.app.use(BootstrapVueNext)
       this.app.mount(this.el);
     }
   }
